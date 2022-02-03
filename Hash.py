@@ -1,20 +1,26 @@
+from Node import Node
 
 class Hash:
     def __init__( self ):
         self.data = []
-        for i in range( 0, 51 ):
+        self.capacidad = 5
+        for i in range( 0, self.capacidad + 1 ):
             self.data.append( None )
     
-    def agrega( self, num ):
-        indice = int(int((num * 13 + 7) / 3) * 11 / 5 ) % 50
+    def agrega( self, nuevoNodo ):
+        indice = int(int((nuevoNodo.identificador * 13 + 7) / 3) * 11 / 5 ) % self.capacidad
         if self.data[indice] == None:
-            self.data[indice] = num
-            print( "El número", num, "será agregado en el índice", indice )
+            self.data[indice] = nuevoNodo
+            print( "El nodo será agregado en el índice", indice )
         else:
-            print( "Hay una colisión, tendremos que hacer un ajuste con una lista" )
+            aux = self.data[indice]
+            while aux.next != None:
+                aux = aux.next
+            aux.next = nuevoNodo
+            print( "El nodo será agregado en el índice", indice, "Ya existía un nodo en este índice." )
     
     def buscaElemento( self, num ):
-        indice = int(int((num * 13 + 7) / 3) * 11 / 5 ) % 50
+        indice = int(int((num * 13 + 7) / 3) * 11 / 5 ) % self.capacidad
         if self.data[indice] == None:
             print( "Ese número aún no se encuentra en nuestra tabla de hash" )
         else:
