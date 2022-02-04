@@ -10,23 +10,15 @@ tablaNumeros.agrega( persona2 )
 persona3 = Node( "Antonio", "Morales", 789 )
 tablaNumeros.agrega( persona3 )
 
-print(tablaNumeros.data[1].identificador )
-print(tablaNumeros.data[1].next.identificador )
+tablaNumeros.actualizaElemento( 123, "Alexander", "Gomez" )
+tablaNumeros.actualizaElemento( 789, "Julieta", "Martinez" )
 
-
-
-
-
-
-# Almacenar Nodos que contengan campos para nombre, apellido, identificador, next.
-# Agregar nodos a la tabla de Hash en lugar de números enteros.
-# Modificar el método para que reciba un Nodo. 
-# En el agrega contemplar la lógica para colisiones. 
-
-# Crear el método actualiza elemento. Este método recibe un identificador y los campos 
-# a actualizar.
-# En caso de que no se encuentre el nodo mostrar el mensaje "Identificador no encontrado"
+tablaNumeros.actualizaElemento( 562, "Ruebn", "Dainitin" )
 
 # Crear el método borra elemento. Este método recibe un identificador para eliminar de
 # la tabla de Hash. 
 # En caso de que no se encuentre el nodo mostrar el mensaje "Identificador no encontrado"
+
+# Crea un método que aumente la capacidad de la tabla de hash.
+# Actualizar la capacidad nueva.
+# Reacomodar los nodos/elementos que ya existían dentro de la tabla de hash.

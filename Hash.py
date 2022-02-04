@@ -26,3 +26,26 @@ class Hash:
         else:
             print( "El número se encuentra en el índice", indice, "de nuestra tabla de hash." )
             return indice
+
+    def actualizaElemento( self, identificador, nombre, apellido ):
+        indice = int(int((identificador * 13 + 7) / 3) * 11 / 5 ) % self.capacidad
+        if self.data[indice] == None:
+            print( "No tenemos nada que actualizar, el identificador no existe en nuestra tabla de Hash." )
+        else:
+            if self.data[indice].next == None:
+                if self.data[indice].identificador == identificador:
+                    self.data[indice].nombre = nombre
+                    self.data[indice].apellido = apellido
+                else:
+                    print( "No tenemos nada que actualizar, el identificador no existe en nuestra tabla de Hash." )
+            else:
+                aux = self.data[indice]
+                while aux != None:
+                    if aux.identificador == identificador:
+                        aux.nombre = nombre
+                        aux.apellido = apellido
+                        return "Nodo actualizado"
+                    else:
+                        aux = aux.next
+                print( "No tenemos nada que actualizar, el identificador no existe en nuestra tabla de Hash." )
+
